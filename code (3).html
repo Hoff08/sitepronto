@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título Atualizado -->
+    <title>Portfólio - Vicenzo Hoffmann</title>
+    <!-- Link para a biblioteca de fontes (ex: Google Fonts) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Link para a biblioteca de ícones (ex: Font Awesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* --- INÍCIO DO CSS --- */
+
+        /* --- Reset Básico & Configuração --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Cores Modificadas para Cor Lago Frias */
+            /* !! SUBSTITUA #008080 PELA SUA COR LAGO FRIAS EXATA !! */
+            --color-primary: #008080; /* Cor Lago Frias (Exemplo: Azul-Petróleo) */
+            --color-secondary: #1C3A34; /* Verde Escuro (Mantido) */
+            --color-background-light: #F5F3EF; /* Bege Claro */
+            --color-background-dark: var(--color-secondary);
+            --color-text-dark: #1F1F1F; /* Cinza Escuro/Preto */
+            --color-text-light: #FFFFFF;
+            --color-text-muted: #555;
+
+            --border-radius-small: 8px;
+            --border-radius-medium: 12px;
+            --border-radius-large: 20px;
+            --font-family-base: 'Inter', sans-serif;
+        }
+
+        html {
+             scroll-behavior: smooth; /* Rolagem suave para links internos */
+        }
+
+        body {
+            font-family: var(--font-family-base);
+            background-color: var(--color-background-light);
+            color: var(--color-text-dark);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            line-height: 1.3;
+            margin-bottom: 0.75em;
+            font-weight: 600; /* Ajuste conforme necessário */
+        }
+
+        h1 { font-size: 3.5rem; } /* Aproximado */
+        h2 { font-size: 2.5rem; }
+        h3 { font-size: 1.5rem; }
+        h4 { font-size: 1.1rem; }
+
+        p {
+            margin-bottom: 1em;
+            color: var(--color-text-muted); /* Cor padrão suave para parágrafos */
+        }
+        section h2 + p { /* Parágrafo diretamente após o título da seção */
+           max-width: 600px;
+           margin-left: auto;
+           margin-right: auto;
+           text-align: center;
+           margin-bottom: 3em;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--color-primary); /* Agora usará a Cor Lago Frias */
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* --- Classes Utilitárias --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: var(--border-radius-large);
+            font-weight: 500;
+            text-align: center;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--color-primary); /* Agora usará a Cor Lago Frias */
+            color: var(--color-text-light);
+        }
+        .btn-primary:hover {
+            /* !! AJUSTE #006666 SE NECESSÁRIO PARA UM TOM MAIS ESCURO DA SUA COR LAGO FRIAS !! */
+            background-color: #006666; /* Tom mais escuro da Cor Lago Frias (Exemplo) */
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--color-primary); /* Agora usará a Cor Lago Frias */
+            border: 1px solid var(--color-primary); /* Agora usará a Cor Lago Frias */
+            /* Fundo com base na NOVA cor primária */
+            /* !! USA O RGB DA COR LAGO FRIAS - (0, 128, 128) para #008080 !! */
+            background-color: rgba(0, 128, 128, 0.1); /* Fundo claro Cor Lago Frias */
+        }
+        .btn-secondary:hover {
+             /* !! USA O RGB DA COR LAGO FRIAS !! */
+             background-color: rgba(0, 128, 128, 0.2); /* Fundo claro hover Cor Lago Frias */
+        }
+
+        .btn i { /* Espaçamento do ícone */
+            margin-left: 8px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        /* --- Cabeçalho --- */
+        .header {
+            background-color: var(--color-background-light); /* Ou ligeiramente diferente se necessário */
+            padding: 15px 0;
+            border-bottom: 1px solid #eee; /* Borda sutil */
+            position: sticky; /* Opcional: tornar o cabeçalho fixo */
+            top: 0;
+            z-index: 100;
+            background: rgba(245, 243, 239, 0.9); /* Adiciona leve transparência se fixo */
+            backdrop-filter: blur(5px);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--color-text-dark);
+        }
+        .logo img {
+            height: 45px; /* Ajuste */
+            margin-right: 10px; /* Aumentei o espaçamento */
+        }
+
+        .main-nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        .main-nav a {
+            color: var(--color-text-dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .main-nav a:hover {
+            color: var(--color-primary); /* Usará Cor Lago Frias */
+        }
+
+        .btn-contact-header {
+            padding: 10px 24px; /* Ligeiramente menor */
+        }
+
+        .mobile-nav-toggle {
+            display: none; /* Oculto por padrão */
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--color-text-dark);
+        }
+
+        /* --- Seção Hero --- */
+        .hero {
+            padding-top: 60px; /* Ajuste se o cabeçalho for fixo */
+            padding-bottom: 100px;
+        }
+
+        .hero-container {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero h1 {
+            margin-bottom: 0.5em;
+        }
+        .hero-content > p {
+             font-size: 1.1rem;
+             max-width: 500px;
+             margin-bottom: 1.5em;
+             color: var(--color-text-muted);
+        }
+
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 2em;
+        }
+
+        .hero-image-area {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .hero-main-image {
+            border-radius: var(--border-radius-large);
+            max-width: 80%; /* Ajuste o tamanho relativo ao container */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* --- Seção Proposta de Valor (Adaptada: O que você verá) --- */
+        .value-prop {
+            background-color: var(--color-background-light);
+            text-align: center;
+            padding: 60px 0;
+        }
+        .value-prop h2 {
+             max-width: 800px;
+             margin-left: auto;
+             margin-right: auto;
+             margin-bottom: 1.5em;
+             font-size: 2rem;
+        }
+
+        /* --- Seção Escura de Funcionalidades (Adaptada: Por que explorar?) --- */
+        .features-dark {
+            background-color: var(--color-background-dark);
+            color: var(--color-text-light);
+            border-radius: var(--border-radius-large);
+            margin: 40px auto;
+            max-width: 1300px;
+            padding: 80px 40px;
+        }
+        .features-dark h2, .features-dark .section-intro-p {
+            color: var(--color-text-light);
+            text-align: center;
+        }
+        .features-dark h2 {
+            margin-bottom: 0.5em;
+        }
+        .features-dark .section-intro-p {
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.8;
+            margin-bottom: 3em;
+        }
+
+        /* Estilo para a lista numerada */
+        .process-list {
+            max-width: 900px;
+            margin: 40px auto 0;
+            list-style: none;
+            padding-left: 0;
+            counter-reset: process-counter;
+        }
+        .process-list li {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: var(--border-radius-medium);
+            padding: 25px 30px 25px 80px;
+            margin-bottom: 25px;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .process-list li::before {
+            counter-increment: process-counter;
+            content: "0" counter(process-counter);
+            position: absolute;
+            left: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--color-primary); /* Cor do número agora usa Cor Lago Frias */
+            line-height: 1;
+        }
+        .process-list h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.3em;
+            color: var(--color-text-light);
+        }
+        .process-list p {
+            font-size: 0.95rem;
+            margin-bottom: 0;
+            color: rgba(255, 255, 255, 0.8);
+            opacity: 0.9;
+        }
+
+
+        /* --- Seção Clara de Funcionalidades (Adaptada: Disciplinas) --- */
+        .features-light h2, .features-light > .container > p {
+            text-align: center;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 4em;
+        }
+        .feature-item {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: var(--border-radius-medium);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+        }
+        .feature-mockup {
+           border-radius: var(--border-radius-small);
+           margin-bottom: 20px;
+           overflow: hidden;
+           height: 200px;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           background-color: #f0f0f0;
+        }
+        .feature-mockup img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border-radius: var(--border-radius-small);
+        }
+        .feature-item h3 {
+            font-size: 1.2rem;
+            color: var(--color-text-dark);
+            margin-bottom: 0.5em;
+        }
+        .feature-item p {
+            font-size: 0.95rem;
+            margin-bottom: 1.5em;
+            flex-grow: 1;
+        }
+         .feature-item .btn {
+            margin-top: auto;
+            width: fit-content;
+            align-self: flex-start;
+         }
+
+
+        /* --- Seção Funcionalidades Principais (Adaptada: Sobre Mim) --- */
+        .core-features {
+             margin-top: 80px;
+             background-color: var(--color-background-dark);
+             color: var(--color-text-light);
+             padding: 80px 0;
+        }
+        .core-features h2, .core-features p {
+             color: var(--color-text-light);
+        }
+         .core-features h2 {
+             text-align: center;
+             margin-bottom: 1em;
+         }
+         .core-features > .container > p {
+             text-align: center;
+             max-width: 700px;
+             margin-left: auto;
+             margin-right: auto;
+             opacity: 0.8;
+             margin-bottom: 3em;
+         }
+
+
+        .core-features-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 60px;
+        }
+        .core-features-content {
+            flex: 1.2;
+        }
+        .core-features-image {
+            flex: 0.8;
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .core-features-image img {
+            border-radius: var(--border-radius-medium);
+            max-width: 100%;
+            object-fit: cover;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .skills-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-top: 2em;
+        }
+        .skill-card {
+            background-color: rgba(255, 255, 255, 0.08);
+            padding: 25px;
+            border-radius: var(--border-radius-medium);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .skill-card .icon {
+            color: var(--color-primary); /* Cor do ícone agora usa Cor Lago Frias */
+            font-size: 1.8rem;
+            flex-shrink: 0;
+            /* Fundo opcional para ícone com base na NOVA cor primária */
+            /* !! USA O RGB DA COR LAGO FRIAS (0, 128, 128) !! */
+             background-color: rgba(0, 128, 128, 0.1); /* Fundo do ícone Cor Lago Frias claro */
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--border-radius-small);
+        }
+         .skill-card div {
+             flex-grow: 1;
+         }
+        .skill-card h4 {
+            color: var(--color-text-light);
+            font-size: 1.1rem;
+            margin-bottom: 0.3em;
+        }
+        .skill-card p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+
+
+        /* --- Seção Rodapé --- */
+        .footer {
+            background-color: var(--color-text-dark);
+            color: rgba(255, 255, 255, 0.7);
+            padding-top: 60px;
+            margin-top: 80px;
+        }
+        .footer-container {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            align-items: start;
+        }
+
+        .footer-about .logo {
+            margin-bottom: 1em;
+            font-size: 1.3rem;
+        }
+         .footer-about .logo img {
+             height: 40px;
+         }
+        .footer-about p {
+            font-size: 0.9rem;
+            max-width: 350px;
+        }
+
+        .footer-links h4 {
+            color: var(--color-text-light);
+            margin-bottom: 1em;
+            font-size: 1.1rem;
+        }
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-links li {
+            margin-bottom: 0.8em;
+        }
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            transition: color 0.3s ease;
+        }
+        .footer-links a:hover {
+            color: var(--color-text-light);
+        }
+
+        .footer-social h4 {
+             color: var(--color-text-light);
+             margin-bottom: 1em;
+             font-size: 1.1rem;
+        }
+        .footer-social a {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.5rem;
+            margin-right: 18px;
+            transition: color 0.3s ease;
+        }
+        .footer-social a:hover {
+            color: var(--color-text-light);
+        }
+        .footer-social a:last-child {
+            margin-right: 0;
+        }
+
+        .footer-bottom {
+            padding: 20px 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+
+        /* --- Responsividade --- */
+        @media (max-width: 992px) {
+            h1 { font-size: 2.8rem; }
+            h2 { font-size: 2rem; }
+
+             .header-container { flex-wrap: wrap; }
+            .main-nav { display: none; order: 3; width: 100%; margin-top: 15px; }
+            .main-nav.active { display: block; }
+            .main-nav ul { flex-direction: column; gap: 15px; text-align: center; }
+            .mobile-nav-toggle { display: block; order: 2; }
+            .btn-contact-header { order: 1; margin-left: auto; }
+
+
+            .hero-container { flex-direction: column; text-align: center; }
+            .hero-content { order: 2; }
+            .hero-image-area { order: 1; margin-bottom: 30px; }
+            .hero-main-image { max-width: 100%; }
+            .hero-buttons { justify-content: center; }
+
+             .process-list li { padding: 20px 25px 20px 65px; }
+             .process-list li::before { left: 15px; font-size: 1.5rem; }
+
+             .feature-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+
+            .core-features-container { flex-direction: column; }
+            .core-features-image { order: 1; margin-bottom: 40px; max-width: 70%; margin-left: auto; margin-right: auto;}
+            .core-features-content { order: 2; }
+            .skills-list { grid-template-columns: 1fr; }
+
+            .footer-container { grid-template-columns: 1fr; text-align: center; gap: 30px;}
+            .footer-about, .footer-links, .footer-social { text-align: center; }
+            .footer-social { margin-top: 10px; }
+            .footer-about p { margin-left: auto; margin-right: auto; }
+            .footer-links ul { padding-left: 0; }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            h2 { font-size: 1.8rem; }
+            section { padding: 60px 0; }
+
+            .btn { padding: 10px 20px; }
+
+            .features-dark { padding: 60px 20px; }
+            .core-features { padding: 60px 0; }
+            .core-features-container { gap: 30px; }
+             .core-features-image { max-width: 85%; }
+
+             .process-list li { padding: 15px 20px 15px 55px; }
+             .process-list li::before { left: 10px; font-size: 1.3rem; }
+
+        }
+
+        /* --- FIM DO CSS --- */
+    </style>
+</head>
+<body>
+
+    <!-- Seção Cabeçalho -->
+    <header class="header">
+        <div class="container header-container">
+            <a class="logo">
+            <img src="cert.png" alt="Logo Vicenzo">
+                <!-- !! SUBSTITUA pelo seu logo ou remova a tag <img> se não tiver !! -->
+                <span>Vicenzo Hoffmann</span>
+            </a>
+            <nav class="main-nav">
+                 <ul>
+                     <li><a href="#hero">Início</a></li>
+                     <li><a href="#processo">O Processo</a></li>
+                     <li><a href="#disciplinas">Disciplinas</a></li>
+                     <li><a href="#sobre-mim">Sobre Mim</a></li>
+                 </ul>
+            </nav>
+            <a href="#disciplinas" class="btn btn-primary btn-contact-header">Ver Projetos</a>
+            <button class="mobile-nav-toggle" aria-label="Alternar navegação">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Seção Hero -->
+        <section class="hero" id="hero">
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <h1>Bem-vindo ao Meu Portfólio Acadêmico e Criativo</h1>
+                    <p>Explore minha jornada de aprendizado, projetos desenvolvidos e habilidades adquiridas durante meu percurso no Sesi/Senai. Veja como superei desafios e evoluí constantemente.</p>
+                    <div class="hero-buttons">
+                        <a href="#disciplinas" class="btn btn-primary">Explorar Disciplinas <i class="fas fa-arrow-down"></i></a>
+                        <a href="#sobre-mim" class="btn btn-secondary">Sobre Mim</a>
+                    </div>
+                </div>
+                <div class="hero-image-area">
+                     <!-- !! SUBSTITUA pela sua foto profissional ou imagem de destaque !! -->
+                    <img src="Design sem nome.png" alt="Foto de Vicenzo Hoffmann" class="hero-main-image">
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Proposta de Valor (Adaptada: O que você verá) -->
+        <section class="value-prop" id="proposta">
+            <div class="container value-prop-container">
+                 <div class="value-prop-content">
+                    <h2>Aqui, você verá não apenas os resultados finais, mas também o <strong>processo de aprendizagem</strong>, incluindo os desafios que enfrentei e como os superei.</h2>
+                    <a href="#processo" class="btn btn-primary">Entenda o Processo <i class="fas fa-arrow-right"></i></a>
+                 </div>
+                 </div>
+        </section>
+
+
+        <!-- Seção Escura (Adaptada: Por que explorar? - O Processo) -->
+        <section class="features-dark" id="processo">
+            <div class="container">
+                <h2>Por Que Explorar Este Portfólio?</h2>
+                <p class="section-intro-p">Este portfólio vai além de uma simples mostra de trabalhos. Ele foi cuidadosamente estruturado para oferecer uma visão completa da minha jornada e capacidades:</p>
+
+                <ol class="process-list">
+                    <li>
+                        <h3>Ver o Progresso do Aluno</h3>
+                        <p>Acompanhe como evoluí ao longo do tempo, com exemplos claros de minhas melhorias e conquistas acadêmicas e práticas.</p>
+                    </li>
+                    <li>
+                        <h3>Identificar Habilidades e Talentos</h3>
+                        <p>Neste portfólio, você encontrará uma variedade de trabalhos que destacam minhas habilidades técnicas, criativas e talentos únicos.</p>
+                    </li>
+                    <li>
+                        <h3>Avaliar o Desempenho</h3>
+                        <p>Você poderá avaliar meu desempenho acadêmico detalhadamente, com uma visão clara das minhas realizações e projetos concluídos.</p>
+                    </li>
+                    <li>
+                        <h3>Fornecer Feedback Personalizado</h3>
+                        <p>Este portfólio permite que você me dê feedback específico e construtivo, ajudando-me a crescer e melhorar continuamente.</p>
+                    </li>
+                     <li>
+                        <h3>Entender o Processo Completo</h3>
+                        <p>Conheça não só os resultados finais, mas as etapas do meu aprendizado, os obstáculos que encontrei pelo caminho e as estratégias que usei para superá-los.</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Seção Clara (Adaptada: Disciplinas) -->
+        <section class="features-light" id="disciplinas">
+            <div class="container">
+                 <h2>Disciplinas e Áreas de Conhecimento</h2>
+                 <p>Navegue pelos projetos e aprendizados em cada uma das principais áreas do meu percurso educacional no Sesi/Senai.</p>
+                 <div class="feature-grid">
+                    <!-- Item Disciplina 1 -->
+                    <div class="feature-item">
+                        <div class="feature-mockup">
+                             <img src="matematica.png" alt="Ícone ou Imagem representativa de Matemática">
+                        </div>
+                        <h3>Disciplina 1 - Matemática</h3>
+                        <p>Projetos e atividades que demonstram raciocínio lógico, resolução de problemas e aplicação de conceitos matemáticos.</p>
+                         <a href="#" class="btn btn-secondary">Ver Detalhes</a>
+                    </div>
+                    <!-- Item Disciplina 2 -->
+                    <div class="feature-item">
+                        <div class="feature-mockup">
+                            <img src="linguagens.png" alt="Ícone ou Imagem representativa de Linguagens">
+                        </div>
+                        <h3>Disciplina 2 - Linguagens</h3>
+                        <p>Trabalhos relacionados à comunicação, interpretação, produção textual e expressão em diferentes linguagens.</p>
+                         <a href="#" class="btn btn-secondary">Ver Detalhes</a>
+                    </div>
+                     <!-- Item Disciplina 3 -->
+                     <div class="feature-item">
+                         <div class="feature-mockup">
+                            <img src="Ciências da Natureza.png" alt="Ícone ou Imagem representativa de Ciências da Natureza">
+                        </div>
+                        <h3>Disciplina 3 - Ciências da Natureza</h3>
+                        <p>Exploração de conceitos de física, química e biologia através de experimentos, pesquisas e projetos aplicados.</p>
+                        <a href="#" class="btn btn-secondary">Ver Detalhes</a>
+                    </div>
+                     <!-- Item Disciplina 4 -->
+                     <div class="feature-item">
+                         <div class="feature-mockup">
+                            <img src="Ciências Humanas.png" alt="Ícone ou Imagem representativa de Ciências Humanas">
+                        </div>
+                        <h3>Disciplina 4 - Ciências Humanas</h3>
+                        <p>Análises sobre sociedade, história, geografia e cultura, desenvolvendo pensamento crítico e compreensão do mundo.</p>
+                         <a href="#" class="btn btn-secondary">Ver Detalhes</a>
+                    </div>
+                     <!-- Item Disciplina 5 -->
+                      <div class="feature-item">
+                         <div class="feature-mockup">
+                            <img src="Área Técnica.png" alt="Ícone ou Imagem representativa da Área Técnica">
+                        </div>
+                        <h3>Disciplina 5 - Área Técnica</h3>
+                        <p>Projetos e competências desenvolvidas na área técnica específica do curso, demonstrando habilidades práticas e conhecimento especializado.</p>
+                         <a href="#" class="btn btn-secondary">Ver Detalhes</a>
+                    </div>
+                 </div>
+            </div>
+        </section>
+
+        <!-- Seção Funcionalidades Principais (Adaptada: Sobre Mim) -->
+        <section class="core-features" id="sobre-mim">
+             <div class="container">
+                 <h2>Sobre Mim</h2>
+                 <div class="core-features-container">
+                     <div class="core-features-content">
+                        <p style="font-size: 1.1rem; opacity: 1; color: rgba(255, 255, 255, 0.9); margin-bottom: 2em;">Sou Vicenzo Hoffmann, um estudante dedicado do Sesi/Senai, sempre em busca de novos conhecimentos para expandir meu intelecto e aprimorar minhas habilidades. Sou apaixonado por aprender e aplicar o que aprendo em projetos práticos.</p>
+                        <h3 style="color: var(--color-text-light); margin-bottom: 1em;">Principais Habilidades:</h3>
+                        <div class="skills-list">
+                            <div class="skill-card">
+                                <div class="icon"><i class="fas fa-paint-brush"></i></div>
+                                <div>
+                                    <h4>Design</h4>
+                                    <p>Criação visual, UI/UX (especificar se aplicável)</p>
+                                </div>
+                            </div>
+                             <div class="skill-card">
+                                <div class="icon"><i class="fas fa-lightbulb"></i></div>
+                                <div>
+                                    <h4>Empreendedorismo</h4>
+                                    <p>Iniciativa, resolução de problemas, visão de negócio</p>
+                                </div>
+                            </div>
+                             <div class="skill-card">
+                                <div class="icon"><i class="fas fa-video"></i></div>
+                                <div>
+                                    <h4>Edição de Vídeo</h4>
+                                    <p>Competência em softwares de edição, storytelling visual</p>
+                                </div>
+                            </div>
+                            <div class="skill-card">
+                                <div class="icon"><i class="fas fa-book-open"></i></div>
+                                <div>
+                                     <h4>Interesses Adicionais</h4>
+                                     <p>Leitura variada e prática de esportes</p>
+                                </div>
+                            </div>
+                        </div>
+                     </div>
+                     <div class="core-features-image">
+                        <img src="minhaft.png" alt="Foto de Vicenzo Hoffmann">
+                     </div>
+                 </div>
+             </div>
+        </section>
+
+    </main>
+
+    <!-- Seção Rodapé -->
+    <footer class="footer">
+        <div class="container footer-container">
+             <div class="footer-about">
+                 <a class="logo">
+                    <img src="cert.png" alt="Logo Vicenzo">
+                    <span>Vicenzo Hoffmann</span>
+                 </a>
+                 <p>Portfólio acadêmico e criativo. Explorando aprendizados, projetos e crescimento contínuo.</p>
+             </div>
+
+            <div class="footer-links">
+                <h4>Navegação</h4>
+                <ul>
+                     <li><a href="#hero">Início</a></li>
+                     <li><a href="#processo">O Processo</a></li>
+                     <li><a href="#disciplinas">Disciplinas</a></li>
+                     <li><a href="#sobre-mim">Sobre Mim</a></li>
+                </ul>
+            </div>
+             <div class="footer-social">
+                 <h4>Conecte-se</h4>
+                 <!-- !! SUBSTITUA '#' pelos links reais das suas redes sociais !! -->
+                 <a href="#" aria-label="LinkedIn" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                 <a href="#" aria-label="GitHub" target="_blank"><i class="fab fa-github"></i></a>
+                 <a href="#" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+             </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>© 2024 Vicenzo Hoffmann. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // --- INÍCIO DO JAVASCRIPT ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+            const mainNav = document.querySelector('.main-nav');
+
+            if (mobileNavToggle && mainNav) {
+                mobileNavToggle.addEventListener('click', () => {
+                    mainNav.classList.toggle('active');
+                    const icon = mobileNavToggle.querySelector('i');
+                    if (mainNav.classList.contains('active')) {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-times');
+                    } else {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+
+                const navLinks = mainNav.querySelectorAll('a');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        if (mainNav.classList.contains('active')) {
+                            mainNav.classList.remove('active');
+                             const icon = mobileNavToggle.querySelector('i');
+                             icon.classList.remove('fa-times');
+                             icon.classList.add('fa-bars');
+                        }
+                    });
+                });
+            }
+        });
+        // --- FIM DO JAVASCRIPT ---
+    </script>
+</body>
+</html>
